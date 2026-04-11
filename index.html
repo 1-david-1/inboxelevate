@@ -2252,7 +2252,7 @@
                 <option value="Google Ads">Google Ads</option>
                 <option value="LinkedIn Ads">LinkedIn Ads</option>
                 <option value="Komplettpaket (Webseite + Ads)">Komplettpaket (Webseite + Ads)</option>
-                <option value="Strategie & Beratung">Strategie & Beratung</option>
+                <option value="Strategie &amp; Beratung">Strategie &amp; Beratung</option>
                 <option value="Sonstiges">Sonstiges</option>
               </select>
             </div>
@@ -2412,12 +2412,11 @@
       const old = document.getElementById('page-' + currentPage);
       const next = document.getElementById('page-' + id);
       if (!next) return;
-      old.classList.remove('active');
+      if (old) old.classList.remove('active');
       next.classList.add('active');
       currentPage = id;
       window.scrollTo({ top: 0, behavior: 'instant' });
       updateNavLinks(id);
-      // Trigger scroll reveal for new page
       setTimeout(initReveal, 50);
     }
     function updateNavLinks(id) {
