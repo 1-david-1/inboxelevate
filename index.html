@@ -1516,8 +1516,198 @@
       }
     }
 
+    /* ── ANIMATED NAV ARROW ── */
+    .nav-arrow {
+      display: inline-block;
+      animation: arrowBounce 1.2s ease-in-out infinite;
+    }
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    /* ── TIPS PAGE ── */
+    .tips-hero {
+      padding: calc(68px + 4rem) clamp(1.5rem, 5vw, 4rem) 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tips-filter-bar {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .tips-filter-btn {
+      font-family: var(--B);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: .5rem 1.2rem;
+      border-radius: 50px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: none;
+      transition: all .2s;
+    }
+    .tips-filter-btn:hover {
+      border-color: var(--green);
+      color: var(--ink);
+    }
+    .tips-filter-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--cream);
+    }
+    .tips-count {
+      font-family: var(--M);
+      font-size: .7rem;
+      letter-spacing: .1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding: 3rem clamp(1.5rem, 5vw, 4rem) 1rem;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+      padding: 0 clamp(1.5rem, 5vw, 4rem) 4rem;
+    }
+    .tip-card-ie {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.5rem;
+      cursor: none;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: tipCardIn .4s ease forwards;
+    }
+    .tip-card-ie:hover {
+      border-color: var(--green);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(29, 186, 110, .1);
+    }
+    .tip-card-ie.open {
+      border-color: var(--green);
+      background: rgba(29, 186, 110, .04);
+    }
+    @keyframes tipCardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tip-card-ie:nth-child(1) { animation-delay: .05s; }
+    .tip-card-ie:nth-child(2) { animation-delay: .1s; }
+    .tip-card-ie:nth-child(3) { animation-delay: .15s; }
+    .tip-card-ie:nth-child(4) { animation-delay: .2s; }
+    .tip-card-ie:nth-child(5) { animation-delay: .25s; }
+    .tip-card-ie:nth-child(6) { animation-delay: .3s; }
+    .tip-card-ie:nth-child(7) { animation-delay: .35s; }
+    .tip-card-ie:nth-child(8) { animation-delay: .4s; }
+    .tip-top-ie {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .tip-icon-ie {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--green-dim);
+      border: 1px solid rgba(29, 186, 110, .2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tip-title-ie {
+      font-family: var(--H);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.02em;
+    }
+    .tip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-family: var(--M);
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 50px;
+      margin-top: .8rem;
+    }
+    .tip-badge-high {
+      background: rgba(29, 186, 110, .12);
+      color: var(--green);
+      border: 1px solid rgba(29, 186, 110, .25);
+    }
+    .tip-badge-mid {
+      background: rgba(250, 199, 117, .12);
+      color: #c98a00;
+      border: 1px solid rgba(250, 199, 117, .3);
+    }
+    .tip-body-ie {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .35s ease;
+    }
+    .tip-body-ie-inner {
+      overflow: hidden;
+    }
+    .tip-card-ie.open .tip-body-ie {
+      grid-template-rows: 1fr;
+    }
+    .tip-body-ie-inner p {
+      padding-top: 1rem;
+      margin-top: .8rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .87rem;
+      line-height: 1.7;
+    }
+    .tip-body-ie-inner p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .tip-action-ie {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: .8rem;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--green);
+      font-family: var(--H);
+    }
+    .tip-action-ie::before {
+      content: '→';
+    }
+    .tip-chevron {
+      margin-left: auto;
+      font-size: .7rem;
+      color: var(--muted);
+      transition: transform .3s, color .2s;
+      flex-shrink: 0;
+    }
+    .tip-card-ie.open .tip-chevron {
+      transform: rotate(180deg);
+      color: var(--green);
+    }
+    .tips-cta-strip {
+      background: var(--ink);
+      padding: 4rem clamp(1.5rem, 5vw, 4rem);
+      text-align: center;
+    }
     @media(max-width:600px) {
-      .nav-links {
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+
+    @media(max-width:600px) {
         display: none;
       }
 
@@ -1572,7 +1762,8 @@
       <li><a href="#" onclick="navigate('services');return false;" data-page="services">Leistungen</a></li>
       <li><a href="#" onclick="navigate('process');return false;" data-page="process">Prozess</a></li>
       <li><a href="#" onclick="navigate('about');return false;" data-page="about">Über uns</a></li>
-      <li><a href="#" onclick="navigate('contact');return false;" class="nav-cta" data-page="contact">Kontakt →</a></li>
+      <li><a href="#" onclick="navigate('tips');return false;" data-page="tips">Tipps</a></li>
+      <li><a href="#" onclick="navigate('contact');return false;" class="nav-cta" data-page="contact">Kontakt <span class="nav-arrow">→</span></a></li>
     </ul>
     <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </nav>
@@ -1582,6 +1773,7 @@
     <a href="#" onclick="navigate('services');toggleMob();return false;">Leistungen</a>
     <a href="#" onclick="navigate('process');toggleMob();return false;">Prozess</a>
     <a href="#" onclick="navigate('about');toggleMob();return false;">Über uns</a>
+    <a href="#" onclick="navigate('tips');toggleMob();return false;">Tipps</a>
     <a href="#" onclick="navigate('contact');toggleMob();return false;" style="color:var(--green)">Kontakt →</a>
   </div>
 
@@ -1724,12 +1916,11 @@
       <p style="color:rgba(245,243,238,.45);margin-top:1.2rem;font-size:.95rem;">30 Minuten, die dein Business verändern
         könnten.</p>
       <a href="#" onclick="navigate('contact');return false;" class="btn-ink"
-        style="margin-top:2.5rem;display:inline-flex;background:var(--green);color:var(--ink);">Jetzt Gespräch anfragen
-        →</a>
+        style="margin-top:2.5rem;display:inline-flex;background:var(--green);color:var(--ink);">Kostenlosen Marketing-Check anfordern →</a>
     </section>
 
     <footer>
-      <div class="footer-grid">
+      <div class="footer-grid"></div>
         <div class="footer-brand">
           <a href="#" onclick="navigate('home');return false;" class="logo" style="color:var(--cream);">
             <svg viewBox="0 0 40 40" width="26" fill="none">
@@ -1777,9 +1968,8 @@
   <div id="page-services" class="page">
     <div class="page-hero">
       <p class="page-label">Was wir anbieten</p>
-      <h1 class="page-h1">Leistungen, die <span>wirken.</span></h1>
-      <p class="page-sub">Von der Webseite bis zur Ad-Kampagne — alles aus einer Hand, mit klarer Strategie dahinter.
-      </p>
+      <h1 class="page-h1">Leistungen für <span>Sicherheitsunternehmen.</span></h1>
+      <p class="page-sub">Webseiten und Ads, die speziell auf die Anforderungen von Sicherheitsdiensten und Alarmanlagen-Anbietern ausgerichtet sind.</p>
     </div>
 
     <div class="services-categories">
@@ -1788,32 +1978,32 @@
       <div class="svc-cat">
         <div class="svc-cat-head">
           <div class="svc-cat-icon">🌐</div>
-          <h2>Webseiten-Entwicklung</h2>
-          <p>Moderne, schnelle Webseiten, die deinen Besuchern in Erinnerung bleiben — und sie zu Kunden machen.</p>
+          <h2>Webseiten für Sicherheitsunternehmen</h2>
+          <p>Webseiten, die Vertrauen aufbauen und Anfragen auslösen — mit Notrufnummer, Zertifikaten und lokaler SEO.</p>
         </div>
 
         <div class="svc-panel active" id="svc-web">
           <div class="panel-features">
             <div class="panel-feat">
-              <h4>Individuelles Design</h4>
-              <p>Kein Template, kein Copy-Paste. Jede Seite wird von Grund auf nach deiner Marke konzipiert.</p>
+              <h4>Notruf & Erreichbarkeit</h4>
+              <p>Notrufnummer und 24/7-Erreichbarkeit sofort sichtbar — das erste, was ein Besucher sehen muss.</p>
             </div>
             <div class="panel-feat">
-              <h4>Performance-First</h4>
-              <p>Schnelle Ladezeiten, sauberer Code — weil Google und Nutzer beides lieben.</p>
+              <h4>Vertrauen aufbauen</h4>
+              <p>Zertifikate, Bewertungen und Referenzen prominent platziert — damit Besucher sofort Vertrauen fassen.</p>
             </div>
             <div class="panel-feat">
-              <h4>Mobile Optimiert</h4>
-              <p>Über 70% der Nutzer kommen mobil. Deine Webseite funktioniert auf jedem Gerät perfekt.</p>
+              <h4>Lokale SEO</h4>
+              <p>Gefunden werden für „Sicherheitsdienst + Stadt" — damit du vor deinen Wettbewerbern erscheinst.</p>
             </div>
             <div class="panel-feat">
-              <h4>Conversion-Fokus</h4>
-              <p>Design und Texte, die gezielt auf deine Wunschaktion hinführen — Kontaktaufnahme, Kauf, Buchung.</p>
+              <h4>Strukturierte Seiten</h4>
+              <p>Eigene Seiten für Alarmanlagen, Objektschutz, Revierdienst & mehr — klar strukturiert für Google und Besucher.</p>
             </div>
           </div>
           <div class="panel-cta-bar">
             <a href="#" onclick="navigateWithService('contact','Webseiten-Entwicklung');return false;"
-              class="btn-ink">Webseite anfragen →</a>
+              class="btn-ink">Kostenlosen Marketing-Check anfordern →</a>
           </div>
         </div>
       </div>
@@ -1823,7 +2013,7 @@
         <div class="svc-cat-head">
           <div class="svc-cat-icon">📣</div>
           <h2>Paid Ads</h2>
-          <p>Präzises Targeting auf Meta, LinkedIn und Google — mit laufender Optimierung für nachhaltigen ROI.</p>
+          <p>Google Search und Meta Ads gezielt für Alarmanlagen-Anfragen, Objektschutz-Leads und Bewerbungen von Sicherheitsmitarbeitern.</p>
         </div>
 
         <!-- Sub-Tab-Bar -->
@@ -1840,20 +2030,20 @@
         <div class="svc-panel active" id="svc-meta">
           <div class="panel-features">
             <div class="panel-feat">
-              <h4>Zielgruppen-Aufbau</h4>
-              <p>Lookalike Audiences, Retargeting und Custom Audiences für maximale Relevanz.</p>
+              <h4>Anfragen für Alarmanlagen</h4>
+              <p>Gezielte Kampagnen für Privatpersonen und Unternehmen, die eine Alarmanlage installieren lassen wollen.</p>
             </div>
             <div class="panel-feat">
-              <h4>Creative-Strategie</h4>
-              <p>Wir nutzen dein bestehendes Material und optimieren es für maximale Performance.</p>
+              <h4>Leads für Objektschutz</h4>
+              <p>Wir sprechen Entscheider an, die Objektschutz oder Revierdienst für ihr Unternehmen suchen.</p>
             </div>
             <div class="panel-feat">
-              <h4>A/B-Testing</h4>
-              <p>Kontinuierliches Testen von Zielgruppen, Platzierungen und Anzeigenformaten.</p>
+              <h4>Bewerbungen gewinnen</h4>
+              <p>Recruiting-Kampagnen für Sicherheitsmitarbeiter — auf Facebook und Instagram, wo deine Zielgruppe aktiv ist.</p>
             </div>
             <div class="panel-feat">
-              <h4>ROAS-Optimierung</h4>
-              <p>Budget-Allokation datengestützt — für jeden investierten Euro mehr zurück.</p>
+              <h4>Qualifizierte Klicks</h4>
+              <p>Kein Budget für unqualifizierte Klicks — wir optimieren kontinuierlich auf echte Anfragen.</p>
             </div>
           </div>
           <div class="panel-platforms">
@@ -1863,65 +2053,65 @@
           </div>
           <div class="panel-cta-bar"><a href="#"
               onclick="navigateWithService('contact','Meta Ads (Facebook/Instagram)');return false;"
-              class="btn-ink">Meta Ads anfragen →</a></div>
+              class="btn-ink">Kostenlosen Marketing-Check anfordern →</a></div>
         </div>
 
         <!-- Google Panel -->
         <div class="svc-panel" id="svc-google">
           <div class="panel-features">
             <div class="panel-feat">
-              <h4>Search Campaigns</h4>
-              <p>Keyword-Recherche, Anzeigentexte und Gebotsstrategien für maximale Klickqualität.</p>
+              <h4>„Sicherheitsdienst + Stadt"</h4>
+              <p>Wir schalten dich genau dann, wenn jemand aktiv nach einem Sicherheitsdienst in deiner Region sucht.</p>
             </div>
             <div class="panel-feat">
-              <h4>Display & Retargeting</h4>
-              <p>Sichtbarkeit im Google Netzwerk — für Nutzer, die bereits Interesse gezeigt haben.</p>
+              <h4>Alarmanlagen-Anfragen</h4>
+              <p>Keyword-Strategie und Anzeigentexte speziell für Alarmanlagen-Installationen und Wartungsverträge.</p>
             </div>
             <div class="panel-feat">
-              <h4>Shopping Ads</h4>
-              <p>Für Onlineshops: Produktanzeigen mit Bild, Preis und direktem Link — hochkonvertierend.</p>
+              <h4>Retargeting</h4>
+              <p>Besucher, die deine Seite verlassen haben, werden gezielt wieder angesprochen — bis sie anfragen.</p>
             </div>
             <div class="panel-feat">
               <h4>Conversion-Tracking</h4>
-              <p>Sauberes Setup von GA4 und Google Tag — damit jeder Lead korrekt erfasst wird.</p>
+              <p>Sauberes Setup von GA4 und Google Tag — damit jeder Lead korrekt erfasst und bewertet wird.</p>
             </div>
           </div>
           <div class="panel-platforms">
             <h4>Formate</h4>
             <div class="plat-pills"><span class="plat-pill">Search</span><span class="plat-pill">Display</span><span
-                class="plat-pill">Shopping</span><span class="plat-pill">Performance Max</span></div>
+                class="plat-pill">Retargeting</span><span class="plat-pill">Performance Max</span></div>
           </div>
           <div class="panel-cta-bar"><a href="#" onclick="navigateWithService('contact','Google Ads');return false;"
-              class="btn-ink">Google Ads anfragen →</a></div>
+              class="btn-ink">Kostenlosen Marketing-Check anfordern →</a></div>
         </div>
 
         <!-- LinkedIn Panel -->
         <div class="svc-panel" id="svc-linkedin">
           <div class="panel-features">
             <div class="panel-feat">
-              <h4>Lead Gen Forms</h4>
-              <p>Native Formulare für reibungslose Lead-Generierung direkt in der LinkedIn-App.</p>
+              <h4>B2B-Objektschutz</h4>
+              <p>Für Sicherheitsunternehmen mit B2B-Fokus: Entscheider in Unternehmen gezielt ansprechen.</p>
             </div>
             <div class="panel-feat">
               <h4>Sponsored Content</h4>
-              <p>Anzeigen im Feed, die wie organische Posts wirken — authentisch und hochrelevant.</p>
+              <p>Anzeigen im Feed für Facility Manager, Immobilienverwalter und Unternehmensverantwortliche.</p>
             </div>
             <div class="panel-feat">
               <h4>Company Targeting</h4>
-              <p>Zielgruppenaufbau nach Branche, Unternehmensgröße, Job-Titel und Senioritätslevel.</p>
+              <p>Zielgruppenaufbau nach Branche, Unternehmensgröße und Job-Titel — für qualifizierte B2B-Leads.</p>
             </div>
             <div class="panel-feat">
-              <h4>Message Ads</h4>
-              <p>Direkte LinkedIn-Nachrichten an qualifizierte Kontakte — mit nachgemessenem Öffnungsrate.</p>
+              <h4>Hinweis</h4>
+              <p>LinkedIn eignet sich vor allem für B2B-Sicherheitsdienstleistungen. Für Privatkundengeschäft empfehlen wir Google und Meta.</p>
             </div>
           </div>
           <div class="panel-platforms">
             <h4>Ideal für</h4>
-            <div class="plat-pills"><span class="plat-pill">B2B</span><span class="plat-pill">SaaS</span><span
-                class="plat-pill">Recruiting</span><span class="plat-pill">Consultancies</span></div>
+            <div class="plat-pills"><span class="plat-pill">B2B</span><span class="plat-pill">Objektschutz</span><span
+                class="plat-pill">Facility Management</span><span class="plat-pill">Großkunden</span></div>
           </div>
           <div class="panel-cta-bar"><a href="#" onclick="navigateWithService('contact','LinkedIn Ads');return false;"
-              class="btn-ink">LinkedIn Ads anfragen →</a></div>
+              class="btn-ink">Kostenlosen Marketing-Check anfordern →</a></div>
         </div>
 
       </div>
@@ -1995,9 +2185,7 @@
         <div class="tl-num">02</div>
         <div class="tl-content">
           <h3>Analyse & Strategie</h3>
-          <p>Wir analysieren dein bestehendes Setup, deine Zielgruppe und die Wettbewerbssituation. Darauf aufbauend
-            erstellen wir einen konkreten Vorschlag: Welche Kanäle? Welche Zielgruppen? Welche Budgetverteilung? Mit
-            realistischen Erwartungswerten — keine aufgeblasenen Versprechen.</p>
+          <p>Wir schauen uns dein bestehendes Setup an — Website, Sichtbarkeit bei Google, Wettbewerber in deiner Region. Darauf aufbauend erstellen wir einen konkreten Vorschlag: Welche Kanäle? Welche Zielgruppen? Welche Budgetverteilung? Mit realistischen Erwartungswerten — keine aufgeblasenen Versprechen.</p>
           <div class="tl-tags"><span class="tl-tag">Zielgruppenanalyse</span><span
               class="tl-tag">Kanalauswahl</span><span class="tl-tag">Mediaplan</span></div>
         </div>
@@ -2017,9 +2205,7 @@
         <div class="tl-num">04</div>
         <div class="tl-content">
           <h3>Optimierung & Skalierung</h3>
-          <p>Nach dem Launch beginnt die eigentliche Arbeit. Wir analysieren wöchentlich Daten, testen Varianten und
-            optimieren kontinuierlich. Budget wird dahin verschoben, wo es am besten arbeitet. Erste aussagekräftige
-            Ergebnisse sind nach 4–6 Wochen spürbar.</p>
+          <p>Wir stellen sicher, dass dein Budget nicht in unqualifizierte Klicks fließt, sondern in echte Anfragen für Sicherheitsdienstleistungen. Wir analysieren wöchentlich Daten, testen Varianten und optimieren kontinuierlich. Erste aussagekräftige Ergebnisse sind nach 4–6 Wochen spürbar.</p>
           <div class="tl-tags"><span class="tl-tag">A/B-Testing</span><span class="tl-tag">Wöchentliche
               Analyse</span><span class="tl-tag">Reporting</span></div>
         </div>
@@ -2044,7 +2230,7 @@
       <p style="color:rgba(245,243,238,.5);margin-top:1rem;font-size:.95rem;">Kein Druck. Nur ein offenes Gespräch über
         dein Business und wie wir helfen können.</p>
       <a href="#" onclick="navigate('contact');return false;" class="btn-ink"
-        style="margin-top:2rem;display:inline-flex;background:var(--green);color:var(--ink);">Jetzt anfragen →</a>
+        style="margin-top:2rem;display:inline-flex;background:var(--green);color:var(--ink);">Kostenlosen Marketing-Check anfordern →</a>
     </section>
 
     <footer>
@@ -2094,23 +2280,21 @@
           <p
             style="font-family:var(--M);font-size:.68rem;letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:1.5rem;">
             Über InboxElevate</p>
-          <h2>Wir glauben,<br>dass gute Arbeit<br><span>für sich spricht.</span></h2>
-          <p style="color:rgba(245,243,238,.5);margin-top:1.2rem;font-size:.95rem;line-height:1.7;">Als junges,
-            unabhängiges Startup haben wir keine langen Entscheidungswege, keine aufgeblähten Teams und keine
-            versteckten Gebühren. Was wir haben: Echten Fokus auf dein Wachstum.</p>
+          <h2>Wir bauen unsere<br>Expertise in der<br><span>Sicherheitsbranche auf.</span></h2>
+          <p style="color:rgba(245,243,238,.5);margin-top:1.2rem;font-size:.95rem;line-height:1.7;">Kein aufgeblähtes Team, keine versteckten Gebühren. Was wir haben: Fokus auf echte Partnerschaften und messbare Ergebnisse — speziell für Sicherheitsunternehmen.</p>
         </div>
         <div class="about-manifesto">
           <div class="manifesto-item">
             <div class="m-label">Unser Versprechen</div>
-            <p>Du sprichst immer mit demjenigen, der deine Kampagnen wirklich betreut — kein Junior als Puffer.</p>
+            <p>Fester Ansprechpartner statt wechselnder Projektteams — du weißt immer, mit wem du sprichst.</p>
           </div>
           <div class="manifesto-item">
             <div class="m-label">Unsere Stärke</div>
-            <p>Klein genug für echte Aufmerksamkeit, professionell genug für echte Ergebnisse.</p>
+            <p>Klare, verständliche Reports statt Marketing-Blabla — auch wenn etwas nicht funktioniert.</p>
           </div>
           <div class="manifesto-item">
             <div class="m-label">Unser Ansporn</div>
-            <p>Wir wachsen nur, wenn du wächst — das ist nicht nur ein Satz, das ist unser Geschäftsmodell.</p>
+            <p>DSGVO-konforme Tracking-Setups, Hosting in der EU — Sicherheit auch im Marketing.</p>
           </div>
         </div>
       </div>
@@ -2118,27 +2302,28 @@
         <p class="page-label">Was uns ausmacht</p>
         <h2
           style="font-family:var(--H);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;letter-spacing:-.05em;line-height:1.05;">
-          Digital. Direkt.<br>Dein Vorteil.</h2>
+          Warum Sicherheitsfirmen<br>mit uns arbeiten.</h2>
+        <p style="color:var(--muted);margin-top:1rem;font-size:.9rem;line-height:1.7;">Wir bauen unsere Expertise in der Sicherheitsbranche gezielt auf — mit Fokus auf echte Partnerschaften statt schnellen Abschlüssen.</p>
         <div class="about-values">
           <div class="value-card">
             <div class="value-icon">🎯</div>
-            <h4>Präzises Targeting</h4>
-            <p>Dein Budget trifft genau die Menschen, die wirklich kaufen könnten — nicht einfach alle.</p>
+            <h4>Fester Ansprechpartner</h4>
+            <p>Kein wechselndes Projektteam. Du hast immer eine direkte Ansprechperson, die dein Business kennt.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">🔬</div>
-            <h4>Datengetrieben</h4>
-            <p>Jede Entscheidung basiert auf echten Zahlen — nicht auf Gefühl oder Trend.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">💬</div>
-            <h4>Offene Kommunikation</h4>
+            <div class="value-icon">�<//div>
+            <h4>Klare Reports</h4>
             <p>Keine Buzzword-Reports. Klare Zahlen, klare Aussagen — auch wenn etwas nicht funktioniert.</p>
           </div>
           <div class="value-card">
             <div class="value-icon">⚡</div>
-            <h4>Schnelle Umsetzung</h4>
-            <p>Keine langen Vorlaufzeiten. Wenn wir übereinstimmen, sind wir schnell im Markt.</p>
+            <h4>Schnelle Reaktion</h4>
+            <p>Schnelle Reaktionszeiten, wenn es brennt — weil in der Sicherheitsbranche Verlässlichkeit zählt.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🔒</div>
+            <h4>DSGVO-konform</h4>
+            <p>DSGVO-konforme Tracking-Setups und Hosting in der EU — Sicherheit auch im digitalen Marketing.</p>
           </div>
         </div>
         <div class="about-stat-row">
@@ -2156,7 +2341,7 @@
           </div>
         </div>
         <div style="margin-top:2rem;">
-          <a href="#" onclick="navigate('contact');return false;" class="btn-ink">Gespräch vereinbaren →</a>
+          <a href="#" onclick="navigate('contact');return false;" class="btn-ink">Kostenlosen Marketing-Check anfordern →</a>
         </div>
       </div>
     </div>
@@ -2232,8 +2417,9 @@
 
       <div class="contact-right">
         <p class="page-label">Schreib uns</p>
-        <h2 style="font-family:var(--H);font-size:1.8rem;font-weight:800;letter-spacing:-.04em;margin-bottom:2rem;">
-          Kostenloses Erstgespräch anfragen</h2>
+        <h2 style="font-family:var(--H);font-size:1.8rem;font-weight:800;letter-spacing:-.04em;margin-bottom:.5rem;">
+          Kostenlosen Marketing-Check anfordern</h2>
+        <p style="color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;">Wir zeigen dir konkret, wo du aktuell Anfragen verlierst.</p>
 
         <div id="cForm">
           <form id="contactForm" onsubmit="submitForm(event)">
@@ -2258,14 +2444,14 @@
                 <option value="Google Ads">Google Ads</option>
                 <option value="LinkedIn Ads">LinkedIn Ads</option>
                 <option value="Komplettpaket (Webseite + Ads)">Komplettpaket (Webseite + Ads)</option>
-                <option value="Strategie & Beratung">Strategie & Beratung</option>
+                <option value="Strategie &amp; Beratung">Strategie &amp; Beratung</option>
                 <option value="Sonstiges">Sonstiges</option>
               </select>
             </div>
             <div class="f-group"><label>Deine Nachricht</label><textarea name="nachricht"
                 placeholder="Erzähl uns kurz von deinem Projekt, Budget oder deinen Fragen..."></textarea></div>
             <button type="submit" class="btn-submit" id="submitBtn">
-              Anfrage senden
+              Kostenlosen Marketing-Check anfordern
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" />
@@ -2346,6 +2532,14 @@
             </div>
           </div>
         </div>
+        <div class="faq-card">
+          <button class="faq-q" onclick="toggleFaq(this)">Habt ihr bereits Erfahrung mit Sicherheitsunternehmen? <span class="faq-ico">+</span></button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <p>Wir bauen unseren Fokus auf die Sicherheitsbranche gezielt auf. Was wir mitbringen: fundiertes Wissen über digitales Marketing, saubere Prozesse und den Anspruch, für jeden Kunden wirklich messbare Ergebnisse zu liefern — keine Versprechen, die wir nicht halten können.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -2388,6 +2582,64 @@
     </footer>
   </div>
 
+  <!-- ══════════════════ TIPS PAGE ══════════════════ -->
+  <div id="page-tips" class="page">
+    <div class="tips-hero">
+      <p class="page-label">Sofort umsetzbar</p>
+      <h1 class="page-h1">Quick-Win Tipps für<br><span>Sicherheitsunternehmen.</span></h1>
+      <p class="page-sub">Klick auf eine Karte für Details. Alle Tipps kannst du ohne Agentur selbst umsetzen — heute noch.</p>
+      <div class="tips-filter-bar" id="tipsFilterBar"></div>
+    </div>
+    <div class="tips-count" id="tipsCount"></div>
+    <div class="tips-grid" id="tipsGrid"></div>
+    <div class="tips-cta-strip">
+      <p style="font-family:var(--M);font-size:.7rem;letter-spacing:.14em;color:var(--green);text-transform:uppercase;margin-bottom:1.2rem;">Willst du mehr?</p>
+      <h2 style="font-family:var(--H);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.05em;color:var(--cream);line-height:1.05;">Wir setzen das für dich um.<br><span style="color:var(--green)">Professionell & messbar.</span></h2>
+      <p style="color:rgba(245,243,238,.45);margin-top:1rem;font-size:.9rem;">Kostenloser Marketing-Check — wir zeigen dir, wo du gerade Anfragen verlierst.</p>
+      <a href="#" onclick="navigate('contact');return false;" class="btn-ink" style="margin-top:2rem;display:inline-flex;background:var(--green);color:var(--ink);">Kostenlosen Marketing-Check anfordern →</a>
+    </div>
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" onclick="navigate('home');return false;" class="logo" style="color:var(--cream);">
+            <svg viewBox="0 0 40 40" width="26" fill="none">
+              <path d="M8 32L34 8M34 8L14 6M34 8L32 28" stroke="#1dba6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M34 8L20 22" stroke="#1dba6e" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M20 22L18 32L23 26" stroke="#1dba6e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            InboxElevate
+          </a>
+          <p>Mehr Anfragen. Mehr Bewerbungen. Spezialisiert auf Sicherheitsunternehmen.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <a href="#" onclick="navigate('home');return false;">Start</a>
+          <a href="#" onclick="navigate('services');return false;">Leistungen</a>
+          <a href="#" onclick="navigate('process');return false;">Prozess</a>
+          <a href="#" onclick="navigate('about');return false;">Über uns</a>
+        </div>
+        <div class="footer-col">
+          <h5>Leistungen</h5>
+          <a href="#" onclick="navigate('services');return false;">Webentwicklung</a>
+          <a href="#" onclick="navigate('services');return false;">Meta & Google Ads</a>
+          <a href="#" onclick="navigate('services');return false;">LinkedIn Ads</a>
+        </div>
+        <div class="footer-col">
+          <h5>Kontakt</h5>
+          <a href="mailto:david@inbox-elevate.de">david@inbox-elevate.de</a>
+          <a href="https://www.linkedin.com/company/inboxelevate/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 InboxElevate.</p>
+        <div class="socials">
+          <a href="https://www.linkedin.com/company/inboxelevate/" target="_blank" class="soc">in</a>
+          <a href="#" class="soc">ig</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
   <script>
     // ─── CURSOR ───
     const cur = document.getElementById('cursor');
@@ -2413,8 +2665,9 @@
       if (old) old.classList.remove('active');
       next.classList.add('active');
       currentPage = id;
-      try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch(e) { window.scrollTo(0, 0); }
+      window.scrollTo({ top: 0, behavior: 'instant' });
       updateNavLinks(id);
+      if (id === 'tips') { initTipsFilters(); renderTips(); }
       setTimeout(initReveal, 50);
     }
     function updateNavLinks(id) {
@@ -2521,6 +2774,84 @@
       document.getElementById('ham').classList.toggle('open');
       document.getElementById('mobMenu').classList.toggle('open');
     }
+    // ─── TIPS PAGE ───
+    const tipsData = [
+      { cat: "Webseite", icon: "🌐", title: "Telefonnummer im Header — klickbar auf Mobil", impact: "hoch", body: "Über 70 % der Interessenten suchen auf dem Smartphone. Eine sichtbare, klickbare Nummer (tel:-Link) direkt im Header senkt die Abbruchrate drastisch. <strong>Viele Sicherheitsfirmen verstecken ihren Kontakt im Footer</strong> — ein echter Conversion-Killer.", action: "Umsetzbar in unter 1 Stunde, auch ohne Webdesigner." },
+      { cat: "Webseite", icon: "🌐", title: "Google-Bewertungen sichtbar einbinden", impact: "hoch", body: "Sicherheit ist Vertrauenssache. Wer 4,6+ Sterne bei Google hat und diese <strong>nirgendwo auf der Website zeigt</strong>, verschenkt massiv Vertrauen. Ein simpler Widget oder Screenshot mit Sternebewertung + Anzahl direkt unter dem Hero-Bereich erhöht die Anfragerate messbar.", action: "Kostenlosen Google Review Widget einbinden (z. B. via Elfsight oder direkt als Screenshot)." },
+      { cat: "Webseite", icon: "🌐", title: "Ladezeit unter 3 Sekunden", impact: "hoch", body: "Laut Google verlassen 53 % der Nutzer eine Seite, wenn sie länger als 3 Sekunden lädt. Gerade Sicherheitswebsites laden oft durch schlechte Bildoptimierung langsam. <strong>PageSpeed Insights</strong> (kostenlos) zeigt sofort, was verbesserbar ist.", action: "Bilder komprimieren (z. B. via Squoosh.app), unnötige Plugins deaktivieren." },
+      { cat: "Webseite", icon: "🌐", title: "Klarer Leistungsbereich mit regionalen Begriffen", impact: "mittel", body: "Statt 'Wir bieten Sicherheitsdienste an' lieber: <strong>'Objektschutz in Düsseldorf & Umgebung'</strong>. Lokale Keywords im Fließtext und in Überschriften verbessern das organische Ranking bei Google — ohne Werbekosten.", action: "Alle Leistungen namentlich nennen + Stadt/Region ergänzen." },
+      { cat: "Webseite", icon: "🌐", title: "Kontaktformular mit Reaktionszeit-Versprechen", impact: "mittel", body: "Niemand füllt ein Formular aus, wenn er nicht weiß, wann er eine Antwort erhält. Ein einfacher Satz wie <strong>'Wir melden uns innerhalb von 2 Stunden'</strong> direkt neben dem Formular erhöht die Abschlussrate deutlich.", action: "Text ergänzen + intern sicherstellen, dass die Reaktionszeit stimmt." },
+      { cat: "Google Ads", icon: "📣", title: "Anzeigenerweiterungen vollständig nutzen", impact: "hoch", body: "Die meisten Sicherheitsfirmen schalten Google Ads ohne <strong>Anruferweiterung, Standorterweiterung und Sitelinks</strong>. Dabei verdoppeln diese die sichtbare Anzeigenfläche — ohne Mehrkosten. Klickrate steigt oft um 20–40 %.", action: "In Google Ads unter 'Erweiterungen' alle relevanten Assets aktivieren." },
+      { cat: "Google Ads", icon: "📣", title: "Negative Keywords einpflegen", impact: "hoch", body: "Ohne Ausschluss-Keywords zahlen Sicherheitsfirmen für Suchanfragen wie 'Sicherheitsdienst Ausbildung', 'Jobs Sicherheit' oder 'Sicherheitskurs kostenlos'. <strong>Bis zu 30 % des Budgets versickert</strong> so in unpassende Klicks.", action: "Suchanfragebericht wöchentlich prüfen und irrelevante Begriffe ausschließen." },
+      { cat: "Google Ads", icon: "📣", title: "Standortbasiertes Targeting auf Region eingrenzen", impact: "hoch", body: "Viele Kampagnen laufen bundesweit, obwohl das Unternehmen nur regional tätig ist. <strong>Jeder Klick außerhalb des Einzugsgebiets ist verschwendetes Geld.</strong> Radius-Targeting auf den tatsächlichen Aktionskreis senkt CPL drastisch.", action: "Zielregion auf 20–50 km Radius einschränken, je nach Tätigkeitsgebiet." },
+      { cat: "Google Ads", icon: "📣", title: "Anzeigentexte mit Zahlen und Konkretem", impact: "mittel", body: "Allgemeine Texte wie 'Ihr zuverlässiger Sicherheitsdienst' performen schwach. Besser: <strong>'24/7 Objektschutz – Reaktionszeit unter 15 Min.'</strong> oder 'Über 200 zufriedene Kunden in NRW'. Konkrete Zahlen erhöhen die Klickrate.", action: "Mindestens 3 Anzeigenvarianten mit spezifischen USPs testen." },
+      { cat: "Meta Ads", icon: "📱", title: "Video statt Bild — auch mit Smartphone gedreht", impact: "hoch", body: "Facebook- und Instagram-Ads mit Video erzielen im Durchschnitt <strong>3x höhere Klickraten</strong> als reine Bildanzeigen. Es muss kein Profi-Video sein — ein 15-Sekunden-Clip vom Einsatzfahrzeug oder dem Team mit Untertiteln reicht.", action: "1 kurzes Video mit dem Smartphone drehen, Untertitel per CapCut einfügen." },
+      { cat: "Meta Ads", icon: "📱", title: "Retargeting auf Webseitenbesucher aktivieren", impact: "hoch", body: "Wer die Webseite besucht hat und keine Anfrage gestellt hat, ist ein <strong>heißer Lead</strong>. Meta Retargeting-Kampagnen erreichen genau diese Personen nochmals — oft mit 5–10x niedrigeren Kosten als Cold Audiences.", action: "Meta Pixel auf der Website installieren (kostenlos), Retargeting-Kampagne anlegen." },
+      { cat: "Meta Ads", icon: "📱", title: "Lead-Formulare statt Landingpage", impact: "mittel", body: "Metas native Lead-Formulare werden direkt in der App ausgefüllt — <strong>keine Ladezeit, keine Abbrüche</strong>. Besonders auf dem Smartphone konvertieren sie oft 2–3x besser als externe Landingpages.", action: "In Meta Ads Manager eine 'Lead-Generierung'-Kampagne mit Instant-Formular erstellen." },
+      { cat: "Kein Budget", icon: "✅", title: "Google Business Profil vollständig ausfüllen", impact: "hoch", body: "Wer bei Google Maps ganz oben erscheinen will, muss sein Google-Business-Profil <strong>vollständig ausfüllen: Öffnungszeiten, Fotos, Leistungen, Kurzbeschreibung</strong>. Ein gepflegtes Profil bekommt 7x mehr Klicks als ein leeres.", action: "Unter business.google.com einloggen, alle Felder ausfüllen, 5+ Fotos hochladen." },
+      { cat: "Kein Budget", icon: "✅", title: "Kundenbewertungen aktiv anfragen", impact: "hoch", body: "Sicherheitsfirmen mit 50+ Google-Bewertungen schlagen Wettbewerber mit 5 Bewertungen in der lokalen Suche fast immer. <strong>Die meisten Kunden geben eine Bewertung, wenn man sie direkt danach fragt</strong> — per WhatsApp, Mail oder QR-Code auf der Visitenkarte.", action: "Direktlink zur Google-Bewertungsseite erzeugen und nach jedem Abschluss senden." },
+      { cat: "Kein Budget", icon: "✅", title: "WhatsApp-Kontakt auf der Website einbinden", impact: "mittel", body: "Viele Interessenten schreiben lieber per WhatsApp als über ein Formular anzufragen. Ein <strong>WhatsApp-Button mit vorausgefülltem Text</strong> ('Ich interessiere mich für Ihren Objektschutz...') senkt die Hemmschwelle massiv.", action: "wa.me/49XXXXXXXX mit vorausgefüllter Nachricht als Link einbinden — 5 Minuten Aufwand." },
+      { cat: "Kein Budget", icon: "✅", title: "Firmenwagen als kostenloses Werbemittel", impact: "mittel", body: "Ein gebrandetes Fahrzeug im Einsatz ist <strong>Außenwerbung ohne laufende Kosten</strong>. Firmenname, Telefonnummer und eine kurze Leistungsangabe auf dem Fahrzeug erzeugen täglich Sichtbarkeit — besonders bei lokalen Gewerbeobjekten.", action: "Fahrzeugbeschriftung einmalige Investition ~300–500 €, jahrelanger Nutzen." }
+    ];
+
+    const tipsCats = ["Alle", "Webseite", "Google Ads", "Meta Ads", "Kein Budget"];
+    let tipsActive = "Alle";
+
+    function renderTips() {
+      const filtered = tipsActive === "Alle" ? tipsData : tipsData.filter(t => t.cat === tipsActive);
+      const countEl = document.getElementById('tipsCount');
+      const gridEl = document.getElementById('tipsGrid');
+      if (!countEl || !gridEl) return;
+      countEl.textContent = filtered.length + ' Tipps gefunden';
+      gridEl.innerHTML = '';
+      filtered.forEach((tip, i) => {
+        const card = document.createElement('div');
+        card.className = 'tip-card-ie';
+        card.style.animationDelay = (i * 0.05) + 's';
+        const isHigh = tip.impact === 'hoch';
+        card.innerHTML = `
+          <div class="tip-top-ie">
+            <div class="tip-icon-ie">${tip.icon}</div>
+            <div style="flex:1">
+              <div class="tip-title-ie">${tip.title}</div>
+              <span class="tip-badge ${isHigh ? 'tip-badge-high' : 'tip-badge-mid'}">${isHigh ? '⚡ Hoher Impact' : '◎ Mittlerer Impact'}</span>
+            </div>
+            <span class="tip-chevron">▼</span>
+          </div>
+          <div class="tip-body-ie">
+            <div class="tip-body-ie-inner">
+              <p>${tip.body}</p>
+              <div class="tip-action-ie">${tip.action}</div>
+            </div>
+          </div>`;
+        card.addEventListener('click', () => {
+          const isOpen = card.classList.contains('open');
+          gridEl.querySelectorAll('.tip-card-ie').forEach(c => c.classList.remove('open'));
+          if (!isOpen) card.classList.add('open');
+        });
+        gridEl.appendChild(card);
+      });
+    }
+
+    function initTipsFilters() {
+      const bar = document.getElementById('tipsFilterBar');
+      if (!bar) return;
+      bar.innerHTML = tipsCats.map(c =>
+        `<button class="tips-filter-btn${c === tipsActive ? ' active' : ''}" data-cat="${c}">${c}</button>`
+      ).join('');
+      bar.querySelectorAll('.tips-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          tipsActive = btn.dataset.cat;
+          bar.querySelectorAll('.tips-filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderTips();
+        });
+      });
+    }
+
+    // Init tips when page loads
+    document.addEventListener('DOMContentLoaded', () => { initTipsFilters(); renderTips(); });
+
   </script>
 </body>
 
